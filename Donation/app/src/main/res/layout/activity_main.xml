@@ -43,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Please Give Generously!"
+                android:textColor="@color/grey"
                 android:textSize="24dp" />
 
             <RadioGroup
@@ -93,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Amount"
+                android:textColor="@color/grey"
                 android:textSize="24dp"/>
 
             <EditText
@@ -108,12 +110,15 @@
 
             <Button
                 android:id="@+id/submitBtn"
-                android:layout_below="@+id/amountInput"
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/amountInput"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#d6d7d7"
                 android:text="Donate"
-                android:textSize="24dp"/>
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                app:cornerRadius="6dp" />
 
             <TextView
                 android:id="@+id/total"
@@ -128,15 +133,15 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatBtn"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:backgroundTint="?attr/colorPrimary"
-                android:tint="@color/white"
-                app:tint="@color/white"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:clickable="true"
+                app:shapeAppearance="@android:style/Widget.Material.CompoundButton.RadioButton"
+                app:srcCompat="@android:drawable/ic_dialog_email"
+                app:tint="@color/white" />
 
         </RelativeLayout>
     </LinearLayout>
