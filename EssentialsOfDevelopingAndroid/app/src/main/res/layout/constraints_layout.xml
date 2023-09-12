@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:hint="Enter your Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_below="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your phone number"
+            android:textSize="24dp"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameInput"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/optionLayout1"
+            android:layout_below="@+id/phoneInput"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneInput">
+
+            <RadioGroup
+                android:id="@+id/option1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/cheeseOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Cheese" />
+
+                <RadioButton
+                    android:id="@+id/cheeseOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="2 x Cheese" />
+
+                <RadioButton
+                    android:id="@+id/cheeseOption3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="None" />
+
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/optionLayout2"
+            android:layout_below="@+id/optionLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/optionLayout1">
+
+            <RadioGroup
+                android:id="@+id/option2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/shapeOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Square" />
+
+                <RadioButton
+                    android:id="@+id/shapeOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Round" />
+
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/optionLayout3"
+            android:layout_below="@+id/optionLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/optionLayout2">
+
+            <RadioGroup
+                android:id="@+id/option3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <CheckBox
+                    android:id="@+id/otherOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Pepperoni" />
+
+                <CheckBox
+                    android:id="@+id/otherOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Mushroom" />
+
+                <CheckBox
+                    android:id="@+id/otherOption3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Veggies" />
+
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/orderingLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your ordering:"
+            android:textColor="#868787"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/optionLayout3"/>
+
+        <EditText
+            android:id="@+id/orderingInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="16"
+            android:minLines="14"
+            android:background="#d6d7d7"
+            android:inputType="text|textMultiLine"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderingLabel"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderingInput">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXIT"
+                android:textSize="16dp"
+                app:cornerRadius="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SMS-PLACE YOUR ORDER"
+                android:textSize="16dp"
+                app:cornerRadius="6dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
