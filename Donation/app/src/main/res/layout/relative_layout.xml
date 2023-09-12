@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,11 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_margin="20dp"
-        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent">
 
@@ -37,20 +36,23 @@
         <TextView
             android:id="@+id/slogan"
             android:layout_marginTop="30dp"
+            android:layout_below="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Please Give Generously!"
             android:textColor="@color/grey"
             android:textSize="24dp" />
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/optionLayout"
+            android:layout_below="@+id/slogan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioGroup
+                android:id="@+id/option"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/option1"
@@ -71,24 +73,28 @@
 
             <NumberPicker
                 android:id="@+id/numberPicker"
+                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:max="1000"
                 android:min="0"
                 android:value="999" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_marginTop="20dp"
+            android:layout_below="@+id/optionLayout"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="5"
             android:progress="1"/>
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/inputLayout"
+            android:layout_below="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -103,6 +109,7 @@
 
             <EditText
                 android:id="@+id/amountInput"
+                android:layout_toRightOf="@+id/amountLabel"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="30dp"
                 android:layout_width="match_parent"
@@ -110,9 +117,11 @@
                 android:inputType="number"
                 android:textSize="24dp"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/donateLayout"
+            android:layout_below="@+id/inputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -129,6 +138,7 @@
 
             <TextView
                 android:id="@+id/total"
+                android:layout_toRightOf="@+id/submitBtn"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="30dp"
                 android:layout_width="wrap_content"
@@ -137,13 +147,14 @@
                 android:text="Total so Far $1997"
                 android:textSize="24dp"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatBtn"
-        android:layout_gravity="bottom|end"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
@@ -154,4 +165,4 @@
         app:srcCompat="@android:drawable/ic_dialog_email"
         app:tint="@color/white" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,13 +18,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_margin="20dp"
-        android:orientation="vertical"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        android:layout_margin="20dp">
 
         <TextView
             android:id="@+id/welcome"
@@ -37,47 +33,58 @@
         <TextView
             android:id="@+id/slogan"
             android:layout_marginTop="30dp"
+            android:layout_below="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Please Give Generously!"
             android:textColor="@color/grey"
             android:textSize="24dp" />
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:stretchColumns="0">
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+            <TableRow
+                android:id="@+id/optionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/option1"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:text="PayPal"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                <RadioGroup
+                    android:id="@+id/option"
 
-                <RadioButton
-                    android:id="@+id/option2"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:text="Direct"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </RadioGroup>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <NumberPicker
-                android:id="@+id/numberPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:max="1000"
-                android:min="0"
-                android:value="999" />
+                    <RadioButton
+                        android:id="@+id/option1"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:text="PayPal"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-        </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/option2"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:text="Direct"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+                <NumberPicker
+                    android:id="@+id/numberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:max="1000"
+                    android:min="0"
+                    android:value="999" />
+
+            </TableRow>
+
+        </TableLayout>
+
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -88,31 +95,42 @@
             android:max="5"
             android:progress="1"/>
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
 
-            <TextView
-                android:id="@+id/amountLabel"
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amount"
-                android:textColor="@color/grey"
-                android:textSize="24dp"/>
-
-            <EditText
-                android:id="@+id/amountInput"
-                android:layout_marginTop="32dp"
-                android:layout_marginLeft="30dp"
+            <TableRow
+                android:id="@+id/inputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textSize="24dp"/>
+                android:layout_height="wrap_content">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/amountLabel"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:textColor="@color/grey"
+                    android:textSize="24dp"/>
 
-        <LinearLayout
+                <EditText
+                    android:id="@+id/amountInput"
+                    android:layout_toRightOf="@+id/amountLabel"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="24dp"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableRow
+            android:id="@+id/donateLayout"
+            android:layout_below="@+id/inputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -129,6 +147,7 @@
 
             <TextView
                 android:id="@+id/total"
+                android:layout_toRightOf="@+id/submitBtn"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="30dp"
                 android:layout_width="wrap_content"
@@ -137,15 +156,14 @@
                 android:text="Total so Far $1997"
                 android:textSize="24dp"/>
 
-        </LinearLayout>
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatBtn"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="right"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/colorPrimary"
@@ -154,4 +172,4 @@
         app:srcCompat="@android:drawable/ic_dialog_email"
         app:tint="@color/white" />
 
-</LinearLayout>
+</TableLayout>
