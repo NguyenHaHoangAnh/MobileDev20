@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:hint="Enter your Name" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your phone number"
+            android:textSize="24dp"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/option1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cheeseOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Cheese" />
+
+                <RadioButton
+                    android:id="@+id/cheeseOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="2 x Cheese" />
+
+                <RadioButton
+                    android:id="@+id/cheeseOption3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="None" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/option2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/shapeOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Square" />
+
+                <RadioButton
+                    android:id="@+id/shapeOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Round" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/option3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/otherOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Pepperoni" />
+
+                <CheckBox
+                    android:id="@+id/otherOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Mushroom" />
+
+                <CheckBox
+                    android:id="@+id/otherOption3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:textSize="16dp"
+                    android:text="Veggies" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your ordering:"
+            android:textColor="#868787"
+            android:textSize="24dp"/>
+
+        <EditText
+            android:id="@+id/orderingInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="14"
+            android:minLines="12"
+            android:background="#d6d7d7"
+            android:inputType="text|textMultiLine"
+            android:scrollbars="vertical"/>
+
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/exit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:text="EXIT"
+                android:textSize="16dp"
+                app:cornerRadius="6dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SMS-PLACE YOUR ORDER"
+                android:textSize="16dp"
+                app:cornerRadius="6dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
