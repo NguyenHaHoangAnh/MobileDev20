@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/button_sharedPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shared Preferences" />
+
+        <Button
+            android:id="@+id/button_androidFileSystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android File System" />
+
+        <Button
+            android:id="@+id/button_internalStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Internal Storage" />
+
+        <Button
+            android:id="@+id/button_externalStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="External Storage" />
+
+        <Button
+            android:id="@+id/button_SQLite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SQLite" />
+
+        <Button
+            android:id="@+id/button_network"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Network" />
+
+    </LinearLayout>
+
+</LinearLayout>
