@@ -7,10 +7,11 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
@@ -21,18 +22,39 @@
         android:orientation="vertical"
         android:layout_margin="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Name"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edt_android_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Name"/>
 
         <Button
-            android:id="@+id/button_sendBroadCast"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Send Broadcast" />
+            android:layout_marginTop="20dp"
+            android:text="Save"
+            android:onClick="addData"/>
+
+        <Button
+            android:id="@+id/btn_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get"
+            android:onClick="getData"/>
 
         <TextView
-            android:id="@+id/textView_message"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

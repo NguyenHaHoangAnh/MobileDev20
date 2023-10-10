@@ -1,10 +1,12 @@
 package com.example.week9;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -84,21 +86,21 @@ public class SQLiteActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menu_add) {
-            DialogTheme();
+            AddWork();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     // Hiện ra cửa sổ nhỏ khi click vào Add
-    private void DialogTheme() {
+    private void AddWork() {
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_add_work);
 
         EditText edtAddWork = dialog.findViewById(R.id.editText_addWork);
         Button btnAdd = dialog.findViewById(R.id.button_add);
-        Button btnCancel = dialog.findViewById(R.id.button_exit);
+        Button btnExit = dialog.findViewById(R.id.button_exit);
 
         btnAdd.setOnClickListener(view -> {
             String name = edtAddWork.getText().toString().trim();
@@ -118,10 +120,70 @@ public class SQLiteActivity extends AppCompatActivity {
             }
         });
 
-        btnCancel.setOnClickListener(view -> {
+        btnExit.setOnClickListener(view -> {
             dialog.dismiss();
         });
 
         dialog.show();
+    }
+
+    public void EditWork(String name, int id) {
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_edit_work);
+
+        EditText edtEditWork = dialog.findViewById(R.id.editText_editWork);
+        Button btnSave = dialog.findViewById(R.id.button_saveEdit);
+        Button btnExit = dialog.findViewById(R.id.button_exitEdit);
+
+        edtEditWork.setText(name);
+
+        btnSave.setOnClickListener(view -> {
+            String newName = edtEditWork.getText().toString().trim();
+            if (newName.equals("")) {
+                Toast.makeText(SQLiteActivity.this,
+                        "Please type something", Toast.LENGTH_LONG).show();
+            } else {
+                sql = "UPDATE Work SET name = '"+ newName +"' WHERE id = '"+ id +"' ";
+                database.QueryData(sql);
+
+                Toast.makeText(SQLiteActivity.this,
+                        "Updated successfully", Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+
+                // Select data
+                GetWorkData();
+            }
+        });
+
+        btnExit.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
+
+    public void DeleteWork(String name, int id) {
+        AlertDialog.Builder dialogDelete = new AlertDialog.Builder(this);
+        dialogDelete.setMessage("Do you want to delete \"" + name + "\" ?");
+        dialogDelete.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                sql = "DELETE FROM Work WHERE id = '"+ id +"' ";
+                database.QueryData(sql);
+
+                Toast.makeText(SQLiteActivity.this,
+                        "Deleted", Toast.LENGTH_LONG).show();
+                GetWorkData();
+            }
+        });
+        dialogDelete.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        dialogDelete.show();
     }
 }

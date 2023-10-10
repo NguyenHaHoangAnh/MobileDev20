@@ -13,12 +13,18 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 public class WorkAdapter extends ArrayAdapter {
-    ArrayList<Work> workList = new ArrayList<Work>();
-    public WorkAdapter(@NonNull Context context, int resource,
+
+    private SQLiteActivity context;
+    private int resource;
+    private ArrayList<Work> workList = new ArrayList<Work>();
+
+    public WorkAdapter(@NonNull SQLiteActivity context, int resource,
                        @NonNull ArrayList<Work> objects) {
         super(context, resource, objects);
 
-        workList = objects;
+        this.context = context;
+        this.resource = resource;
+        this.workList = objects;
     }
 
     private class ViewHolder {
@@ -39,9 +45,9 @@ public class WorkAdapter extends ArrayAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.list_item, null);
-            holder.txtName = (TextView) view.findViewById(R.id.textView_name);
-            holder.imgDelete = (ImageView) view.findViewById(R.id.imageView_delete);
-            holder.imgEdit = (ImageView) view.findViewById(R.id.imageView_edit);
+            holder.txtName = view.findViewById(R.id.textView_name);
+            holder.imgDelete = view.findViewById(R.id.imageView_delete);
+            holder.imgEdit = view.findViewById(R.id.imageView_edit);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -53,7 +59,11 @@ public class WorkAdapter extends ArrayAdapter {
 
         // Bắt sự kiện xóa & sửa
         holder.imgEdit.setOnClickListener(v -> {
-            
+            context.EditWork(work.getName(), work.getId());
+        });
+
+        holder.imgDelete.setOnClickListener(v -> {
+            context.DeleteWork(work.getName(), work.getId());
         });
 
         return view;
